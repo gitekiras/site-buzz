@@ -1,12 +1,18 @@
 app.controller('MainController',function($scope,$rootScope){
-    $scope.defaultImage=function(){
-    this.src='http://www.cs.northwestern.edu/~agupta/_projects/image_processing/web/FractalImageCompression/v1/m0.gif';
-    }
+    
 
-    $rootScope.searchQuery="";
+    $scope.searchQuery="";
     $rootScope.search = function(){
-        console.log('search',$scopoe.searchQuery);
+        window.location="#seachXpert/"+$scope.searchQuery;
     }
+});
+
+app.controller('SearchXpertController',function($scope,$stateParams,XpertService){
+    $scope.q=$stateParams.q;
+    XpertService.search($stateParams.q).then(function(res){
+        console.log(res.data );
+        $scope.xperts = res.data.data;
+    });
 });
 
 app.controller('InterestController',function($rootScope,$scope,$stateParams,InterestService){

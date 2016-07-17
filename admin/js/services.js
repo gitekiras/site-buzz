@@ -19,7 +19,8 @@ app.service('UrlService',function(){
         },
         xpert : {
             list : function(){ return xperts+"/list"; },
-            info : function(id){ return xperts+"/detail/"+id;}
+            info : function(id){ return xperts+"/detail/"+id;},
+            search:function(q){return xperts+"/list?skill="+q}
         },
         broadcasts : {
             list : function(){ return broadcasts+"/xperts"; },
@@ -75,6 +76,9 @@ app.service('XpertService',function($http,UrlService){
         },
         info : function(id){
             return $http.get(UrlService.xpert.info(id),{});
+        },
+        search : function(q){
+            return $http.get(UrlService.xpert.search(q),{});
         }
         
     }

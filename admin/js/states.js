@@ -97,5 +97,18 @@ app.config(function($stateProvider,$urlRouterProvider){
             }
         }
     })
+    .state('/seachXpert/:q',{
+        url : '/seachXpert/:q',
+        views:{
+            'leftbar' : {
+                templateUrl : 'admin/templates/main/leftbar.html',
+                controller : 'InterestController'
+            },
+            'content' : {
+                templateUrl:'admin/templates/search/xpert.html',
+                controller:'SearchXpertController'
+            }
+        }
+    })
     
 });

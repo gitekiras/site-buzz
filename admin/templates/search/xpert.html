@@ -1,0 +1,21 @@
+<br/>
+<div class="panel panel-default">
+    
+    <div class="panel panel-default">
+        <div class="panel-heading"><strong>{{q}} Xperts</strong></div>
+        <div class="panel-body">
+                    <div class="xpert pointer" ng-repeat="xpert in xperts" data-href="#/xpert/{{xpert.id}}">
+                        <div class="img">
+                            <img src="{{xpert.imageName | userThumb}}" height="100px" width="100px;">
+                        </div>
+                        <div class="info">
+                            <span>{{xpert.name}}</span>
+                        </div>
+                        <div class="skill">
+                            {{xpert.skillDTOList[0].skill}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+</div>

@@ -8,6 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#/home"><span>Xpert</span></a>
+<!--
             
             
             
@@ -22,11 +23,11 @@
                 </li>
             </ul>
             
+-->
             <div class="nav-control col-lg-8 pull-right" style="margin-top:7px;">
                 <div class="col-lg-7">
-                    <form action="" ng-submit="search();">
-                        <input type="text" class="form-control search" ng-model="searchQuery" style="display:inline;width:250px;">
-                        <button class="btn">Search</button>
+                    <form ng-submit="search()" ng-controller="MainController">
+                        <input type="text" class="form-control search" ng-model="searchQuery" style="display:inline;width:250px;">                        <button class="btn">Search</button>
                     </form>
                 </div>
                 <div class="col-lg-2">

@@ -1,7 +1,7 @@
 <ul class="nav nav-sidebar">
     <li class="active"><a href="#/home">Skills <span class="sr-only">(current)</span></a></li>
     <li ng-repeat="interest in interests">
-        <a href="#">
+        <a href="#/seachXpert/{{interest.name}}">
             <img src="{{interest.imageName|skillLeftThumb}}" width="50px;" height="50px;">&nbsp;&nbsp;{{interest.name}}
         </a>
     </li>
