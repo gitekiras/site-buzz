@@ -1,0 +1,23 @@
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        
+        {{xpert.name}}</div>
+    <div class="panel-body">
+        <div class="col-lg-2">
+            <img src="{{xpert.imageName | userThumb}}" width="100px" height="100px">
+        </div>
+        <div class="col-lg-10">
+            Name :: <strong>{{xpert.name}}</strong>
+            <hr/>
+            <span ng-repeat="skill in xpert.skillDTOList">
+                Skills :: 
+                <button class="btn btn-primary" type="button">
+                  {{skill.skill}} 
+                </button>
+            </span>
+        </div>
+        <hr/>
+    </div>
+    
+</div>

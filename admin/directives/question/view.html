@@ -1,0 +1,21 @@
+<table class="table table-bordered">
+    <tr>
+        <td colspan="4"><strong>Ques : </strong><span ng-bind-html="ques.question | escapeHtml"></span></td>
+    </tr>
+    <tr ng-repeat="op in ques.options"
+            ng-class="{'bg-success':op.isAnswer==true}">
+        
+        <td colspan="4">
+            <strong>{{$index | integreToChar}} : </strong>{{op.option}}
+        </td>
+    </tr>
+    <tr>
+        <td colspan="1"><strong>Level : </strong>{{ques.level}}</td>
+        <td colspan="1"><strong>Type : </strong>{{ques.questionType}}</td>
+        <td colspan="1"><strong>Active : </strong>{{ques.isActive}}</td>
+        <td colspan="1"><strong>Verified : </strong>{{ques.isVerified}}</td>
+    </tr>
+    <tr>
+        <td colspan="4"><strong>Explanation : </strong><br/><span ng-bind-html="ques.explanation | escapeHtml"></span></td>
+    </tr>
+</table>

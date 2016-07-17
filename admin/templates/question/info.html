@@ -1,0 +1,32 @@
+<br/>
+<div class="panel panel-default">
+    <div class="panel-heading">{{question.question}}</div>
+    <div class="panel-body">
+        <div class="media" ng-repeat="ans in question.answerDtoList" ng-if="question.answerDtoList.length!=0">
+          <div class="media-left media-middle">
+            <a href="#">
+              <img class="media-object" src="{{ans.answeredByImage | ansImg}}" alt="..." height="50px">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">{{ans.answer}}</h4>
+              By : {{ans.answeredByName}}
+          </div>
+        </div>
+        <div ng-if="question.answerDtoList.length==0">
+            No Answers yet
+        </div>
+    </div>
+        
+</div>
+<div>
+    <form ng-submit="answer();">
+        <div class="">
+            <label for="answer">Give Answer</label>
+            <textarea class="form-control" id="answer" ng-model="myAnswer"></textarea>
+        </div><br/>
+        <div class="">
+            <button class="btn btn-success">Submit</button>
+       </div>
+    </form>
+</div>
