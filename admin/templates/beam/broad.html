@@ -3,7 +3,7 @@
 <div ng-if="mode=='details'">
     <form ng-submit="">
         <div>
-            <input type="" class="form-control" ng-model="name">
+            <input type="text" class="form-control" ng-model="broadName">
         </div>
     </form>
     
@@ -24,6 +24,7 @@
       </div>
       <img src="img/mute.svg.png" class="mute" ng-click="mute()">
 -->
+      
   </div>
   <button class="btn btn-success" ng-click="joinRoom()" ng-if="!broadcasting">Broadcast My Talent</button>
   <button class="btn button-danger" ng-click="disconnect()" ng-if="broadcasting">End Broadcast</button>

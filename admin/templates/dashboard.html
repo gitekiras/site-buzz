@@ -47,16 +47,16 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Experts Broadcasts</div>
                 <div class="panel-body">
-                    <div class="" ng-repeat="bro in broadcasts">
-                    
+                    <div class="pointer" ng-repeat="bro in broadcasts" data-href="#/receive/{{bro.channel}}">
                         <div class="col-lg-4">
                             <img src="{{bro.xpertImageName | userThumb}}">
                         </div>
                         <div class="col-lg-8">
-                            {{bro.xpertName}}
+                            <strong>{{bro.name}}</strong>
                             <hr/>
-                            <small>Skills : </small><br/>
-                            <button class="btn btn-link" ng-repeat="skill in bro.skills" type="button">{{skill.skill}}</button>
+                            <small>By {{bro.xpertName}}</small><br/>
+                            <small>Skills : </small>
+                            <small ng-repeat="skill in bro.skills">{{skill.skill}}</small>
                         </div>
                     </div>
                 </div>

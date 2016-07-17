@@ -22,7 +22,8 @@ app.service('UrlService',function(){
             info : function(id){ return xperts+"/detail/"+id;}
         },
         broadcasts : {
-            list : function(){ return broadcasts+"/xperts"; }
+            list : function(){ return broadcasts+"/xperts"; },
+            create : function(){ return broadcasts+"/xpert";}
         }
         
     }
@@ -56,6 +57,10 @@ app.service('BroadcastService',function($http,UrlService){
     return {
         list : function(){
             return $http.get(UrlService.broadcasts.list(),{headers : {}});
+        },
+        create : function(data){
+            console.log(data);
+            return $http.post(UrlService.broadcasts.create(),JSON.stringify(data),{headers : {'Content-Type':'application/json','X-Auth-Token':'d6de2cfb3afc489f972441a3a8c9a5be'}});
         }
     }
 });

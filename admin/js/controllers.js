@@ -1,8 +1,12 @@
-app.controller('MainController',function($scope){
+app.controller('MainController',function($scope,$rootScope){
     $scope.defaultImage=function(){
     this.src='http://www.cs.northwestern.edu/~agupta/_projects/image_processing/web/FractalImageCompression/v1/m0.gif';
     }
 
+    $rootScope.searchQuery="";
+    $rootScope.search = function(){
+        console.log('search',$scopoe.searchQuery);
+    }
 });
 
 app.controller('InterestController',function($rootScope,$scope,$stateParams,InterestService){
@@ -12,10 +16,8 @@ app.controller('InterestController',function($rootScope,$scope,$stateParams,Inte
 });
 
 app.controller('HomeController',function($scope,InterestService,QuestionService,XpertService,BroadcastService){
-    console.log("called by home con");
    QuestionService.list().then(function(res){
        $scope.questions = res.data.data;
-       console.log('check data ',res.data.data);
    });
    XpertService.list().then(function(res){
        $scope.xperts = res.data.data;
@@ -54,24 +56,24 @@ app.controller('XpertInfoController',function($scope,$stateParams,XpertService){
     });
     
 });
-app.controller('BroadcastController', function($scope,$rootScope) {
+app.controller('BroadcastController', function($scope,$rootScope,BroadcastService) {
     $scope.mode='details';
     $scope.broadcasting =false;
     $scope.roomId = "room/1";
     $scope.message="";
     $rootScope.headerOff=true;
+    $scope.broadName="";
     
     $scope.joinRoom = function(){
         
         $scope.broadcasting =true;
-        $scope.msg={'broadcasting':$scope.broadcasting};
-        console.log('join the room ',webrtc);
+        
         var options = {
             // the id/element dom element that will hold "our" video
           localVideoEl: 'viewer-localVideo',
           // the id/element dom element that will hold remote videos
           remoteVideosEl: 'viewer-remotesVideos',
-          debug :true,
+//          debug :true,
           autoRequestMedia: true,
           
           localVideo : {
@@ -82,22 +84,23 @@ app.controller('BroadcastController', function($scope,$rootScope) {
           receiveMedia : { offerToReceiveAudio: 1, offerToReceiveVideo: 1 }
         
         };
-        
-        webrtc = new SimpleWebRTC(options);
-        
-        
-        webrtc.on('videoAdded',function(videoEl, peer){
-            console.log('>>>>>>>>>>>>',videoEl);
-            console.log('>>>>>>>>>>>>',peer);
+        console.log($scope.broadName,'##');
+        BroadcastService.create({'userId':2,'name': $scope.broadName , 'channel':''}).then(function(res){
+            console.log('test >>>' , res.data.data);
         });
+//        webrtc = new SimpleWebRTC(options);
         
+//        
+//        webrtc.on('videoAdded',function(videoEl, peer){
+//            console.log('>>>>>>>>>>>>',videoEl);
+//            console.log('>>>>>>>>>>>>',peer);
+//        });
+//        
         
         $scope.broadcasting =true;
         
         console.log('>>>>>>>>>>>  join room :: ' +$scope.roomId);
-        webrtc.joinRoom($scope.roomId);
-        webrtc.resume();
-        $scope.msg={'broadcasting':$scope.broadcasting};
+//        webrtc.joinRoom($scope.roomId);
     };
     
     $scope.leaveRoom = function(){
@@ -115,6 +118,7 @@ app.controller('BroadcastController', function($scope,$rootScope) {
     }
     
     $scope.disconnect =function(){
+        webrtc.leaveRoom();
         webrtc.disconnect();
     }
     

@@ -84,5 +84,18 @@ app.config(function($stateProvider,$urlRouterProvider){
             }
         }
     })
+    .state('/receive/:channel',{
+        url : '/receive/:channel',
+        views:{
+            'leftbar' : {
+                templateUrl : 'admin/templates/main/leftbar.html',
+                controller : 'InterestController'
+            },
+            'content' : {
+                templateUrl:'admin/templates/beam/view.html',
+                controller:'AskQuesController'      
+            }
+        }
+    })
     
 });
