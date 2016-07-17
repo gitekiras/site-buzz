@@ -1,0 +1,44 @@
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>S.No</th>
+        <th>Topic Name</th>
+        <th>Topic Type</th>
+        <th>Categories</th>
+        <th>Questions</th>
+        <th>Action</th>
+    </tr>
+    <tr ng-repeat="item in data">
+        <td>{{$index+1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.topicType}}</td>
+        <td>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Categories <span class="badge">{{item.categories | listCount}}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a ng-click="showCategories(item.id)">List</a></li>
+                <li><button class="btn btn-link" ng-click="createCategory(item)">Create</button></li>
+              </ul>
+            </div>
+        </td>
+        <td>
+            <div class="dropdown">
+              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                Questions
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#question/topic/{{item.id}}">List</a></li>
+                <li><a href="#question/topic/{{item.id}}/create">Create</a></li>
+              </ul>
+            </div>
+        </td>
+        <td>
+            <a class="btn btn-warning">Edit</a>
+            <span ng-if="item.isActive"><button class="btn btn-danger">Deactivate</button></span>
+            <span ng-if="!item.isActive"><button class="btn btn-danger">Activate</button></span>
+        </td>
+    </tr>
+</table>

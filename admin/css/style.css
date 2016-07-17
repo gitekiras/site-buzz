@@ -1,0 +1,130 @@
+.nav-control{
+    margin: 2px;
+}
+.nav-control input{
+    
+}
+
+.search{
+    
+}
+.broadcast-now{
+    
+}
+
+.bg-match{
+    background: #e9ecf2;
+}
+
+.question-wrapper{
+    background: #f7f7f7;
+    padding: 5px;
+    margin: 0px 5px 10px 5px;
+    position: relative;
+}
+.question{
+    height: 80px;   
+    position: relative;
+}
+.ques-inner{
+    height: 60px;
+}
+.ques-options{
+    border-top: 1px solid #ddd;
+    width: 100%;
+    height: 20px;
+}
+.pointer{
+    cursor: pointer;
+}
+
+
+.xpert{
+    background: #f7f7f7;
+    padding : 5px;
+    height: 130px;
+    display: block;
+    margin: 5px;
+    float: left;
+    text-align: center;
+}
+.xpert .img{
+    display: inline;
+    width: 120px;
+}
+.xpert info{
+    
+}
+
+
+.videoSelf{
+    background: #dddddd;
+    height: 200px;
+    width: 200px;
+    padding: 5px;
+    float: right;
+    position: absolute;
+    right: 0px;
+    top: 0px;   
+}
+.video-wrapper{
+    position: relative;
+}
+.videoOther{
+    width: 600px;
+    margin: auto;
+}
+.videoOther video{
+    background: #fff;
+    width: 600px;
+    height: 400px;
+    margin: auto;
+}
+.chat-wrapper{
+  height: 270px;
+  width: 533px;
+  background: transparent;
+  position: absolute;
+  padding: 5px;
+  top: 130px;
+  left: 29.9%;
+}
+.chat-box{
+    background: transparent;
+    height: 200px;
+    width: 100%;
+    padding:5px;
+}
+.chat-msg{
+    padding: 5px;
+    background: #f7f7f7;
+    height: 55px;
+    position: relative;
+    padding-left: 40px;
+}
+.chat-msg input{
+    background: #d7d7d7;
+    display: inline;
+    width: 420px;
+    height: 40px;
+    margin-top: 3px;
+    padding: 7px;
+}
+
+.chat-msg button {
+    background: #7BAC95;
+    border: 0;
+    float: right;
+    height:40px !important;
+    margin:2px;
+}
+.chat-msg:before{
+    content: '\00BB';
+    height: 30px;
+    width: 50px;
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    font-size: 32px;
+        
+}

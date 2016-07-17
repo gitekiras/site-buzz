@@ -1,0 +1,38 @@
+<h3>Broadcast Your Skills</h3>
+{{mode}}
+<div ng-if="mode=='details'">
+    <form ng-submit="">
+        <div>
+            <input type="" class="form-control" ng-model="name">
+        </div>
+    </form>
+    
+</div>
+<div ng-if="broadcasting">
+    <video class="videoSelf" id="viewer-localVideo" ></video>
+  </div>
+  <div  ng-if="broadcasting" class="video-wrapper">
+      <div id="viewer-remotesVideos" class="videoOther"></div>
+
+      <div class="chat-wrapper" id="chat-wrapper">
+          <div class="chat-box" id="chat-box"></div>
+          <div class="chat-msg" id="chat-msg">
+              <input type="text">
+              <button class="sendChat">Send</button>
+          </div>
+      </div>
+      <img src="img/mute.svg.png" class="mute" ng-click="mute()">
+  </div>
+  <button class="btn btn-success" ng-click="joinRoom()" ng-if="!broadcasting">Broadcast My Talent</button>
+  <button class="btn button-danger" ng-click="disconnect()" ng-if="broadcasting">End Broadcast</button>
+
+  <hr/>
+<!--
+      
+      <div class="chat-wrapper" id="chat-wrapper">
+          <div class="chat-box" id="chat-box"></div>
+          <div class="chat-msg" id="chat-msg">
+              <input type="text" ng-model="message">
+              <button class="sendChat" ng-click="sendChat()">Send</button>
+          </div>
+      </div>-->
