@@ -84,19 +84,15 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
           receiveMedia : { offerToReceiveAudio: 1, offerToReceiveVideo: 1 }
         
         };
-        console.log($scope.broadName,'##');
-//        BroadcastService.create({'userId':2,'name': $scope.broadName , 'channel':''}).then(function(res){
-//            console.log('test >>>' , res.data.data);
+        console.log($scope.broadName,'##',$scope.roomId);
+        
+        webrtc = new SimpleWebRTC(options);
+        webrtc.on('videoAdded',function(videoEl, peer){
             
-            webrtc = new SimpleWebRTC(options);
-
-            webrtc.on('videoAdded',function(videoEl, peer){
-            }); 
-
-            $scope.broadcasting =true;
-
-//            console.log('>>>>>>>>>>>  join room :: ' +res.data.data.channel);
-            webrtc.joinRoom($scope.roomId);
+        }); 
+        
+        $scope.broadcasting =true;
+        webrtc.joinRoom($scope.roomId);
             
 //        });
     };
