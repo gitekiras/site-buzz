@@ -119,3 +119,14 @@ app.controller('BroadcastController', function($scope,$rootScope) {
     }
     
 });
+app.controller('AskQuesController',function($scope,$state,QuestionService){
+    $scope.question="";
+    $scope.skills=[1];
+    
+    $scope.askQuestion = function(){
+        console.log('ask now > ', $scope.question);
+        QuestionService.ask({'question':$scope.question,'skills': $scope.skills}).then(function(res){
+            window.location="#/question/"+res.data.data.id;
+        });
+    }
+});

@@ -14,7 +14,8 @@ app.service('UrlService',function(){
         question : {
             list : function(){ return questions+"/list"; },
             info : function(){ return questions+"/answers"; },
-            answer : function(){ return questions+"/replyAnswer"; }
+            answer : function(){ return questions+"/replyAnswer"; },
+            ask : function(){ return questions+"/create"; },
         },
         xpert : {
             list : function(){ return xperts+"/list"; },
@@ -44,8 +45,10 @@ app.service('QuestionService',function($http,UrlService){
             return $http.post(UrlService.question.info(),JSON.stringify({'questionId':id}),{headers : {'Content-Type':'application/json'}});
         },
         'answer' : function(data){
-            console.log(data);
             return $http.post(UrlService.question.answer(),JSON.stringify(data),{headers : {'Content-Type':'application/json','X-Auth-Token':'d6de2cfb3afc489f972441a3a8c9a5be'}});
+        },
+        ask : function(data){
+             return $http.post(UrlService.question.ask(),JSON.stringify(data),{headers : {'Content-Type':'application/json','X-Auth-Token':'d6de2cfb3afc489f972441a3a8c9a5be'}});
         }
     }
 });
