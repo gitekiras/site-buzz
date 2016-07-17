@@ -94,7 +94,7 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
         $scope.broadcasting =true;
         webrtc.joinRoom($scope.roomId);
             
-//        });
+        });
     };
     
     $scope.leaveRoom = function(){
@@ -114,6 +114,7 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
     $scope.disconnect =function(){
         webrtc.leaveRoom();
         webrtc.disconnect();
+        webrtc.stopLocalVideo();
     }
     
 });
