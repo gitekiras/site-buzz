@@ -1,3 +1,8 @@
+.search:focus{
+    background: #fff;
+    color: #111;
+}
+
 .nav-control{
     margin: 2px;
 }
@@ -42,7 +47,7 @@
 .xpert{
     background: #f7f7f7;
     padding : 5px;
-    height: 130px;
+    height: 150px;
     display: block;
     margin: 5px;
     float: left;
@@ -52,10 +57,13 @@
     display: inline;
     width: 120px;
 }
-.xpert info{
-    
+.xpert .info{
+    border-bottom: 1px solid #f3f3f3;
 }
-
+.xpert .skill{
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
+}
 
 .videoSelf{
     background: #dddddd;
