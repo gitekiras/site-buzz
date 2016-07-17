@@ -65,7 +65,7 @@ app.controller('XpertInfoController',function($scope,$stateParams,XpertService){
 app.controller('BroadcastController', function($scope,$rootScope,BroadcastService) {
     $scope.mode='details';
     $scope.broadcasting =false;
-    $scope.roomId = "room-1";
+    $scope.roomId = "room1";
     $scope.message="";
     $rootScope.headerOff=true;
     $scope.broadName="How to Cook";
