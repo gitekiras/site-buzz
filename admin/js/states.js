@@ -93,7 +93,7 @@ app.config(function($stateProvider,$urlRouterProvider){
             },
             'content' : {
                 templateUrl:'admin/templates/beam/view.html',
-                controller:'AskQuesController'      
+                controller:'BroadReciverController'      
             }
         }
     })

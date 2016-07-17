@@ -62,7 +62,7 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
     $scope.roomId = "room/1";
     $scope.message="";
     $rootScope.headerOff=true;
-    $scope.broadName="";
+    $scope.broadName="How to Cook";
     
     $scope.joinRoom = function(){
         
@@ -131,4 +131,30 @@ app.controller('AskQuesController',function($scope,$state,QuestionService){
             window.location="#/question/"+res.data.data.id;
         });
     }
+});
+app.controller('BroadReciverController',function($scope,$stateParams){
+   var options = {
+            // the id/element dom element that will hold "our" video
+          localVideoEl: 'viewer-localVideo',
+          // the id/element dom element that will hold remote videos
+          remoteVideosEl: 'viewer-remotesVideos',
+//          debug :true,
+          autoRequestMedia: true,
+          
+          localVideo : {
+              autoplay: true, // automatically play the video stream on the page
+              mirror: true, // flip the local video to mirror mode (for UX)
+              muted: true // mute local video stream to prevent echo
+          },
+          receiveMedia : { offerToReceiveAudio: 1, offerToReceiveVideo: 1 }
+        
+        };
+    webrtc = new SimpleWebRTC(options);
+
+    webrtc.on('videoAdded',function(videoEl, peer){
+    }); 
+
+    $scope.broadcasting =true;
+
+    webrtc.joinRoom($stateParams.channel);
 });
