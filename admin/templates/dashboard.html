@@ -48,15 +48,18 @@
                 <div class="panel-heading">Experts Broadcasts</div>
                 <div class="panel-body">
                     <div class="pointer" ng-repeat="bro in broadcasts" data-href="#/receive/{{bro.channel}}">
-                        <div class="col-lg-4">
-                            <img src="{{bro.xpertImageName | userThumb}}">
-                        </div>
-                        <div class="col-lg-8">
-                            <strong>{{bro.name}}</strong>
-                            <hr/>
-                            <small>By {{bro.xpertName}}</small><br/>
-                            <small>Skills : </small>
-                            <small ng-repeat="skill in bro.skills">{{skill.skill}}</small>
+                        <div class="row bro-wrapper">
+                            <div class="col-lg-4">
+                                <img src="{{bro.xpertImageName | userThumb}}">
+                            </div>
+                            <div class="col-lg-8">
+                                <strong>{{bro.name}}</strong>
+                                <br/>
+                                <small>By {{bro.xpertName}}</small><br/>
+                                <small>Skills : </small>
+                                <small ng-repeat="skill in bro.skills">{{skill.skill}}</small>
+                            </div>
+                            <br/>
                         </div>
                     </div>
                 </div>
