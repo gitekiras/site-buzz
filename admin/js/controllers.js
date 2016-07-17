@@ -85,8 +85,8 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
         
         };
         console.log($scope.broadName,'##');
-        BroadcastService.create({'userId':2,'name': $scope.broadName , 'channel':''}).then(function(res){
-            console.log('test >>>' , res.data.data);
+//        BroadcastService.create({'userId':2,'name': $scope.broadName , 'channel':''}).then(function(res){
+//            console.log('test >>>' , res.data.data);
             
             webrtc = new SimpleWebRTC(options);
 
@@ -95,10 +95,10 @@ app.controller('BroadcastController', function($scope,$rootScope,BroadcastServic
 
             $scope.broadcasting =true;
 
-            console.log('>>>>>>>>>>>  join room :: ' +res.data.data.channel);
-            webrtc.joinRoom(res.data.data.channel);
+//            console.log('>>>>>>>>>>>  join room :: ' +res.data.data.channel);
+            webrtc.joinRoom($scope.roomId);
             
-        });
+//        });
     };
     
     $scope.leaveRoom = function(){
